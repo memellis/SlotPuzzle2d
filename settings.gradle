@@ -1,0 +1,6 @@
+include ':core'
+include ':slotpuzzle2d'
+include ':slotpuzzle2dlogcatviewer'
+include ':slotpuzzle2dprototypes'
+include ':slotpuzzle2dprototypeslogcatviewer'
+
