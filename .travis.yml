@@ -1,11 +1,12 @@
 git:
   submodules: false
 before_install:
-  - eval `ssh-agent -s`
-  - openssl aes-256-cbc -K $encrypted_fda7b6caa8fd_key -iv $encrypted_fda7b6caa8fd_iv -in .deploy_key.enc -d | ssh-add -
-  - bash .android_license.sh
-  - sed -i 's/git@github.com:/https:\/\/github.com\//' .gitmodules
-  - git submodule update --init --recursive
+- openssl aes-256-cbc -K $encrypted_1adcf75ad9fe_key -iv $encrypted_1adcf75ad9fe_iv
+  -in deploy_rsa.enc -out deploy_rsa -d
+- eval `ssh-agent -s`
+- bash .android_license.sh
+- sed -i 's/git@github.com:/https:\/\/github.com\//' .gitmodules
+- git submodule update --init --recursive
 language: android
 android:
   components:
@@ -18,8 +19,9 @@ android:
   - android-sdk-preview-license-.+
   - android-sdk-license-.+
   - google-gdk-license-.+
-script: 
-  - gradle clean slotpuzzle2d:assemble slotpuzzle2dlogcatviewer:assemble slotpuzzle2dprototypes:assemble slotpuzzle2dprototypeslogcatviewer:assemble
+script:
+- gradle clean slotpuzzle2d:assemble slotpuzzle2dlogcatviewer:assemble slotpuzzle2dprototypes:assemble
+  slotpuzzle2dprototypeslogcatviewer:assemble
 after_success:
 - bash ${TRAVIS_BUILD_DIR}/.set_tags.sh
 deploy:
@@ -27,9 +29,6 @@ deploy:
   provider: releases
   api_key:
     secure: LByOdo4kGYraj8v7j3EppiOfc19jfhc3uW2Wr8ohbvLG23MbbiGNhd4N5twkwJacPJTmtVs31ALxAvrBs68SSgC8u2s/PoOPr9+bKXek1hShLC04kXwADv98j16DEf20PaOTF7NWEQZ9+kLbioAalC0aJeZNNkox/e+owUrzPls/5kmUw0PE2ZtcfYg45Nw0acVcRmihBtZVusq1K/Ne6Y2LOLvS6Pbb9mVTT7AaL8UB90jdksPWjIlcK4LhjTkie9YRXl/94ntgNkGvka3VzPL9GhzXEyImY2gKzOvxyJaDjLdM0srcIOO90aW0mihZn8aO3bpFI05EeuE49lpYMwHG2DiHc6Dq+DFQjzRp+mTFGixxifld6C/g10Ap2KDoz4gM1iTY2rNG+2Utr0Op/OSDe5J+dkk+23N5xmX8hN+oNa/MYjkUPc8Wjhbh+N6LmkuWXN7Rhi6DGP8E06lNl14gw+FJX62wyE6d5QmDg1KknVKlGVYRdfbr0yapTRcfCwVnIS9GcEbdVTOMGcZaithqGhpY7oed63wpvBuAADXexJpVdcJ4Az+FEydBbbmENbGWvG6v+MFmkYI6kEY9AX+4mry/r5OBkwugj0qNZLnUl6k8vOcxkRTxWVgsst6qmbVJ7FA1eFiWOJXEM5yqeD41w1JXh5i9h1bNuUME2T8=
-  file: ${TRAVIS_BUILD_DIR}/slotpuzzle2d/build/outputs/apk/slotpuzzle2d-debug.apk
-  file: ${TRAVIS_BUILD_DIR}/slotpuzzle2dlogcatviewer/build/outputs/apk/slotpuzzle2dlogcatviewer-debug.apk
-  file: ${TRAVIS_BUILD_DIR}/slotpuzzle2dprototypes/build/outputs/apk/slotpuzzle2dprototypesslotpuzzle2dprototypes-debug.apk
-  file: ${TRAVIS_BUILD_DIR}/slotpuzzle2dprototypeslogcatviewer/build/outputs/apk/slotpuzzle2dprototypeslogcatviewer-debug.apk
+  file: "${TRAVIS_BUILD_DIR}/slotpuzzle2dprototypeslogcatviewer/build/outputs/apk/slotpuzzle2dprototypeslogcatviewer-debug.apk"
   on:
     repo: memellis/SlotPuzzle2D
