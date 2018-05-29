@@ -21,6 +21,8 @@ allprojects {
         gdxVersion = '1.9.6'
         roboVMVersion = '2.3.0'
         box2DLightsVersion = '1.4'
+        aiVersion = '1.8.1'
+        gdxUtilsVersion = '0.13.3'
     }
 
     repositories {
@@ -39,10 +41,14 @@ project(":core") {
  	    compile "com.badlogicgames.gdx:gdx-controllers:$gdxVersion"
 	    compile "com.badlogicgames.gdx:gdx-box2d:$gdxVersion"
 	    compile "com.badlogicgames.box2dlights:box2dlights:$box2DLightsVersion"
-		compile "com.badlogicgames.gdx:gdx-freetype:$gdxVersion"
+	    compile "com.badlogicgames.gdx:gdx-freetype:$gdxVersion"
+            compile "net.dermetfan.libgdx-utils:libgdx-utils:$gdxUtilsVersion"
+            compile "net.dermetfan.libgdx-utils:libgdx-utils-box2d:$gdxUtilsVersion"
+            compile "com.badlogicgames.gdx:gdx-ai:$aiVersion"
 	    compile fileTree(dir: '../libs', include: '*.jar')
     }
 }
+
 project(":slotpuzzle2d") {
     apply plugin: "android"
 
