@@ -24,7 +24,7 @@ script:
 - "./gradlew clean slotpuzzle2d:assemble slotpuzzle2dlogcatviewer:assemble slotpuzzle2dprototypes:assemble
   slotpuzzle2dprototypeslogcatviewer:assemble"
 after_success:
-- bash ${TRAVIS_BUILD_DIR}/.set_tags.sh
+- bash -x ${TRAVIS_BUILD_DIR}/.set_tags.sh
 deploy:
   provider: releases
   api_key:
@@ -34,6 +34,7 @@ deploy:
     - "${TRAVIS_BUILD_DIR}/slotpuzzle2logcatviewer/build/outputs/apk/slotpuzzle2dlogcatviewer-debug.apk"
     - "${TRAVIS_BUILD_DIR}/slotpuzzle2dprototypes/build/outputs/apk/slotpuzzle2dprototypes-debug.apk"
     - "${TRAVIS_BUILD_DIR}/slotpuzzle2dprototypeslogcatviewer/build/outputs/apk/slotpuzzle2dprototypeslogcatviewer-debug.apk"
+  skip_cleanup: true
   on:
     tags: true
     repo: memellis/SlotPuzzle2d
