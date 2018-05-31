@@ -7,6 +7,8 @@ before_install:
 - bash .android_license.sh
 - sed -i 's/git@github.com:/https:\/\/github.com\//' .gitmodules
 - git submodule update --init --recursive
+  - chmod u+x ./gradlew 
+
 language: android
 android:
   components:
@@ -20,8 +22,7 @@ android:
   - android-sdk-license-.+
   - google-gdk-license-.+
 script:
-  - chmod u+x ./gradlew 
- - ./gradlew clean slotpuzzle2d:assemble slotpuzzle2dlogcatviewer:assemble slotpuzzle2dprototypes:assemble slotpuzzle2dprototypeslogcatviewer:assemble
+  - ./gradlew clean slotpuzzle2d:assemble slotpuzzle2dlogcatviewer:assemble slotpuzzle2dprototypes:assemble slotpuzzle2dprototypeslogcatviewer:assemble
 after_success:
   - bash ${TRAVIS_BUILD_DIR}/.set_tags.sh
 deploy:
