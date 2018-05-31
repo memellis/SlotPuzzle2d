@@ -1,9 +1,9 @@
 git:
   submodules: false
 before_install:
-- openssl aes-256-cbc -K $encrypted_b268273c33e7_key -iv $encrypted_b268273c33e7_iv
-  -in .deploy_rsa.enc -out .deploy_rsa -d
 - eval `ssh-agent -s`
+- openssl aes-256-cbc -K $encrypted_b268273c33e7_key -iv $encrypted_b268273c33e7_iv
+  -in .deploy_rsa.enc -d | ssh-add -
 - bash .android_license.sh
 - sed -i 's/git@github.com:/https:\/\/github.com\//' .gitmodules
 - git submodule update --init --recursive
