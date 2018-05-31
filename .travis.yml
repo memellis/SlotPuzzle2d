@@ -20,9 +20,10 @@ android:
   - android-sdk-license-.+
   - google-gdk-license-.+
 script:
-- ./gradlew clean slotpuzzle2d:assemble slotpuzzle2dlogcatviewer:assemble slotpuzzle2dprototypes:assemble slotpuzzle2dprototypeslogcatviewer:assemble
+  - chmod u+x ./gradlew 
+ - ./gradlew clean slotpuzzle2d:assemble slotpuzzle2dlogcatviewer:assemble slotpuzzle2dprototypes:assemble slotpuzzle2dprototypeslogcatviewer:assemble
 after_success:
-- bash ${TRAVIS_BUILD_DIR}/.set_tags.sh
+  - bash ${TRAVIS_BUILD_DIR}/.set_tags.sh
 deploy:
   skip_cleanup: true
   provider: releases
