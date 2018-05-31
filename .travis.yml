@@ -23,7 +23,7 @@ android:
 script:
 - "./gradlew clean slotpuzzle2d:assemble slotpuzzle2dlogcatviewer:assemble slotpuzzle2dprototypes:assemble
   slotpuzzle2dprototypeslogcatviewer:assemble"
-after_success:
+before_deploy:
 - bash -x ${TRAVIS_BUILD_DIR}/.set_tags.sh
 deploy:
   provider: releases
