@@ -7,8 +7,7 @@ before_install:
 - bash .android_license.sh
 - sed -i 's/git@github.com:/https:\/\/github.com\//' .gitmodules
 - git submodule update --init --recursive
-- chmod u+x ./gradlew 
-
+- chmod u+x ./gradlew
 language: android
 android:
   components:
@@ -22,14 +21,19 @@ android:
   - android-sdk-license-.+
   - google-gdk-license-.+
 script:
-  - ./gradlew clean slotpuzzle2d:assemble slotpuzzle2dlogcatviewer:assemble slotpuzzle2dprototypes:assemble slotpuzzle2dprototypeslogcatviewer:assemble
+- "./gradlew clean slotpuzzle2d:assemble slotpuzzle2dlogcatviewer:assemble slotpuzzle2dprototypes:assemble
+  slotpuzzle2dprototypeslogcatviewer:assemble"
 after_success:
-  - bash ${TRAVIS_BUILD_DIR}/.set_tags.sh
+- bash ${TRAVIS_BUILD_DIR}/.set_tags.sh
 deploy:
-  skip_cleanup: true
   provider: releases
   api_key:
-    secure: LByOdo4kGYraj8v7j3EppiOfc19jfhc3uW2Wr8ohbvLG23MbbiGNhd4N5twkwJacPJTmtVs31ALxAvrBs68SSgC8u2s/PoOPr9+bKXek1hShLC04kXwADv98j16DEf20PaOTF7NWEQZ9+kLbioAalC0aJeZNNkox/e+owUrzPls/5kmUw0PE2ZtcfYg45Nw0acVcRmihBtZVusq1K/Ne6Y2LOLvS6Pbb9mVTT7AaL8UB90jdksPWjIlcK4LhjTkie9YRXl/94ntgNkGvka3VzPL9GhzXEyImY2gKzOvxyJaDjLdM0srcIOO90aW0mihZn8aO3bpFI05EeuE49lpYMwHG2DiHc6Dq+DFQjzRp+mTFGixxifld6C/g10Ap2KDoz4gM1iTY2rNG+2Utr0Op/OSDe5J+dkk+23N5xmX8hN+oNa/MYjkUPc8Wjhbh+N6LmkuWXN7Rhi6DGP8E06lNl14gw+FJX62wyE6d5QmDg1KknVKlGVYRdfbr0yapTRcfCwVnIS9GcEbdVTOMGcZaithqGhpY7oed63wpvBuAADXexJpVdcJ4Az+FEydBbbmENbGWvG6v+MFmkYI6kEY9AX+4mry/r5OBkwugj0qNZLnUl6k8vOcxkRTxWVgsst6qmbVJ7FA1eFiWOJXEM5yqeD41w1JXh5i9h1bNuUME2T8= 
-  file: "${TRAVIS_BUILD_DIR}/slotpuzzle2dprototypeslogcatviewer/build/outputs/apk/slotpuzzle2dprototypeslogcatviewer-debug.apk"
+    secure: NiT0GUQy2eSTc8oP9HbKRMcmiuMJgScc9vzdkEV8hLYiP7bPWwzX42aZ9O1o4f7dT7EVPW8j4xYgzE4I0/pflaenW77Sl0MXsS1B+x16bHl6dIZfrKBhDXSDx7Q42XcgLSAo8HZVWQW4JM4B5z5ZZGGCVpRbib499wDf6h+lALucNMMUt0mSxTaWLcWWh6k3L07cFLjVUOmSxDgptl/J+WkK4pM5x0QWQ3lY02QKKRTG9+JmiC6FA8fAyTQk21tB7tQSraWpawb6nMC4Jg/tewfOtpMsyr1LqxRBoWfU1agtWpJ+oMxxVIlrpvjsipipSJ4O7SlO4MTlnNU0AI3rIj8wMc5OTWqHa9CdaG6ate9onJy279wyAAGRBIQbS/KZiTJn6SEQlN5+vPR3Kjf/lu3Jf5IAtTAYiTM1irtUK5NVJEC+Je7+ziFjcyqIeavFn/gkw22l1ZyKWFhDpG/J1vAdQWTTZbeiHQUYnSuVs8bIud+gDjCyraOQ0lQD82rA34GEv6iYhetWDnANIO5JK4r6OsS/GqWh+x+OnjEblzhTEvr3hCPDTgPQSkQksGgmIFhMhZNhLxuOm4MErOK+wC82HQwUUr99W33T8jNqp0XIeiYkfEcUp8/Pj1nB5nRyxvkMF3GDvprJk8CEPiggWQRYt8nIyIXImBalliZGsxM=
+  file:
+    - '"${TRAVIS_BUILD_DIR}/slotpuzzle2d/build/outputs/apk/slotpuzzle2d-debug.apk"'
+    - '"${TRAVIS_BUILD_DIR}/slotpuzzle2logcatviewer/build/outputs/apk/slotpuzzle2dlogcatviewer-debug.apk"'
+    - '"${TRAVIS_BUILD_DIR}/slotpuzzle2dprototypes/build/outputs/apk/slotpuzzle2dprototypes-debug.apk"'
+    - '"${TRAVIS_BUILD_DIR}/slotpuzzle2dprototypeslogcatviewer/build/outputs/apk/slotpuzzle2dprototypeslogcatviewer-debug.apk"'
+
   on:
     repo: memellis/SlotPuzzle2d
