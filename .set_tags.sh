@@ -18,11 +18,9 @@ if [ "$TRAVIS_BRANCH" = "$BRANCH" ]; then
            # Add tag and push to master.
 
            git tag -a v${TRAVIS_BUILD_NUMBER} -m "Travis build $TRAVIS_BUILD_NUMBER pushed a tag." 
-	   git remote set-url --delete origin https://github.com/memellis/SlotPuzzle2d.git
            git remote set-url origin git@github.com:memellis/SlotPuzzle2d.git
            git push origin v${TRAVIS_BUILD_NUMBER}
 
-           git tag
            echo -e "Done magic with tags.\n"
         fi
     fi
