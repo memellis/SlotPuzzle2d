@@ -24,7 +24,7 @@ script:
 - "./gradlew clean slotpuzzle2d:assemble slotpuzzle2dlogcatviewer:assemble slotpuzzle2dprototypes:assemble
   slotpuzzle2dprototypeslogcatviewer:assemble"
 after_success:
-- bash -x ${TRAVIS_BUILD_DIR}/.set_tags.sh
+- bash ${TRAVIS_BUILD_DIR}/.set_tags.sh
 deploy:
   provider: releases
   api_key:
