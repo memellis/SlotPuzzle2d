@@ -31,7 +31,7 @@ deploy:
     secure: NiT0GUQy2eSTc8oP9HbKRMcmiuMJgScc9vzdkEV8hLYiP7bPWwzX42aZ9O1o4f7dT7EVPW8j4xYgzE4I0/pflaenW77Sl0MXsS1B+x16bHl6dIZfrKBhDXSDx7Q42XcgLSAo8HZVWQW4JM4B5z5ZZGGCVpRbib499wDf6h+lALucNMMUt0mSxTaWLcWWh6k3L07cFLjVUOmSxDgptl/J+WkK4pM5x0QWQ3lY02QKKRTG9+JmiC6FA8fAyTQk21tB7tQSraWpawb6nMC4Jg/tewfOtpMsyr1LqxRBoWfU1agtWpJ+oMxxVIlrpvjsipipSJ4O7SlO4MTlnNU0AI3rIj8wMc5OTWqHa9CdaG6ate9onJy279wyAAGRBIQbS/KZiTJn6SEQlN5+vPR3Kjf/lu3Jf5IAtTAYiTM1irtUK5NVJEC+Je7+ziFjcyqIeavFn/gkw22l1ZyKWFhDpG/J1vAdQWTTZbeiHQUYnSuVs8bIud+gDjCyraOQ0lQD82rA34GEv6iYhetWDnANIO5JK4r6OsS/GqWh+x+OnjEblzhTEvr3hCPDTgPQSkQksGgmIFhMhZNhLxuOm4MErOK+wC82HQwUUr99W33T8jNqp0XIeiYkfEcUp8/Pj1nB5nRyxvkMF3GDvprJk8CEPiggWQRYt8nIyIXImBalliZGsxM=
   file:
     - "${TRAVIS_BUILD_DIR}/slotpuzzle2d/build/outputs/apk/slotpuzzle2d-debug.apk"
-    - "${TRAVIS_BUILD_DIR}/slotpuzzle2logcatviewer/build/outputs/apk/slotpuzzle2dlogcatviewer-debug.apk"
+    - "${TRAVIS_BUILD_DIR}/slotpuzzle2dlogcatviewer/build/outputs/apk/slotpuzzle2dlogcatviewer-debug.apk"
     - "${TRAVIS_BUILD_DIR}/slotpuzzle2dprototypes/build/outputs/apk/slotpuzzle2dprototypes-debug.apk"
     - "${TRAVIS_BUILD_DIR}/slotpuzzle2dprototypeslogcatviewer/build/outputs/apk/slotpuzzle2dprototypeslogcatviewer-debug.apk"
   skip_cleanup: true
