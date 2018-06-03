@@ -4,6 +4,8 @@ A game inspired by Matching pattern puzzles combined with Fruit/Slot
 Machines combined with mini levels from the famous Italian Plumber 
 games. 
 
+[![Build 
+Status](https://travis-ci.org/memellis/SlotPuzzle.svg?branch=master)](https://travis-ci.org/memellis/SlotPuzzle)
 [![](https://jitpack.io/v/memellis/SlotPuzzle2D.svg)](https://jitpack.io/#memellis/SlotPuzzle2D)
 
 #### Screenshots
